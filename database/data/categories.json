@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "Vip",
+        "initial" : "VIP",
+        "active" : true
+    },
+    {
+        "name" : "Premium",
+        "initial" : "PRE",
+        "active" : true
+    },
+    {
+        "name" : "Basic",
+        "initial" : "BSC",
+        "active" : true
+    }
+]

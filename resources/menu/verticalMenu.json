@@ -1,0 +1,87 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "menuHeader": "Master"
+    },
+    {
+      "name": "Master",
+      "icon": "menu-icon tf-icons bx bx bx-dock-top",
+      "slug": "master",
+      "submenu": [
+        {
+          "url": "/master/units",
+          "name": "Units",
+          "slug": "master-units"
+        },
+        {
+          "url": "/master/brands",
+          "name": "Brands",
+          "slug": "master-brands"
+        },
+        {
+          "url": "/master/categories",
+          "name": "Categories",
+          "slug": "master-categories"
+        },
+        {
+          "url": "/master/products",
+          "name": "Products",
+          "slug": "master-products"
+        },
+        {
+          "url": "/master/warehouse",
+          "name": "Warehouse",
+          "slug": "master-warehouse"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Transactions"
+    },
+    {
+      "name": "Purchases",
+      "icon": "menu-icon tf-icons bx bx-box",
+      "slug": "purchases",
+      "submenu": [
+        {
+          "url": "purchases/suppliers",
+          "name": "Suppliers",
+          "slug": "purchases-suppliers"
+        },
+        {
+          "url": "purchases/purchaseinvoice",
+          "name": "Purchase Invoice",
+          "slug": "purchases-purchase-invoice"
+        }
+      ]
+    },
+    {
+      "name": "Sales",
+      "icon": "menu-icon tf-icons bx bx-copy",
+      "slug": "sales",
+      "submenu": [
+        {
+          "url": "sales/salesman",
+          "name": "Salesman",
+          "slug": "sales-salesman"
+        },
+        {
+          "url": "sales/customers",
+          "name": "Customers",
+          "slug": "sales-customers"
+        },
+        {
+          "url": "sales/salesinvoice",
+          "name": "Sales Invoice",
+          "slug": "sales-sales-invoice"
+        }
+      ]
+    }
+  ]
+}

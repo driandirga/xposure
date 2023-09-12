@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "Asus",
+        "initial" : "ASS",
+        "active" : true
+    },
+    {
+        "name" : "Lenovo",
+        "initial" : "LNV",
+        "active" : true
+    },
+    {
+        "name" : "Dell",
+        "initial" : "DEL",
+        "active" : true
+    }
+]

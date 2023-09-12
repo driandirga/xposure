@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "Box",
+        "initial" : "BOX",
+        "active" : true
+    },
+    {
+        "name" : "Pack",
+        "initial" : "PAK",
+        "active" : true
+    },
+    {
+        "name" : "Pieces",
+        "initial" : "PCS",
+        "active" : true
+    }
+]
