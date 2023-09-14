@@ -42,6 +42,15 @@
       ]
     },
     {
+      "menuHeader": "Inventory"
+    },
+    {
+      "url": "/",
+      "name": "Inventory",
+      "icon": "menu-icon tf-icons bx bx-layout",
+      "slug": "dashboard-analytics"
+    },
+    {
       "menuHeader": "Transactions"
     },
     {

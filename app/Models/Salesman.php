@@ -6,20 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Unit extends Model
+class Salesman extends Model
 {
     use HasFactory;
 
-    protected $table = 'units';
+    protected $table = 'salesmen';
 
     protected $fillable = [
         'name',
         'initial',
+        'phone',
+        'address',
         'active',
     ];
 
-    public  function products(): HasMany
+    public  function customers(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Customer::class);
     }
 }
