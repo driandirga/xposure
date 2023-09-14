@@ -13,10 +13,10 @@ class Stock extends Model
     protected $table = 'stocts';
 
     protected $fillable = [
-        'warehouse_id',
-        'product_id',
         'debit',
         'credit',
+        'warehouse_id',
+        'product_id',
     ];
 
     public function warehouse(): BelongsTo

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name',10)->unique();
-            $table->string('initial',3)->unique();
-            $table->string('phone')->unique();
+            $table->string('name',30)->unique();
+            $table->string('initial',10)->unique();
             $table->string('address');
-            $table->bigInteger('salesman_id')->unsigned()->nullable();
+            $table->string('phone')->unique();
             $table->boolean('active');
+            $table->bigInteger('salesman_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

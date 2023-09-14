@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('warehouse_id')->unsigned()->nullable();
-            $table->bigInteger('product_id')->unsigned()->nullable();
             $table->double('debit')->default(0);
             $table->double('credit')->default(0);
+            $table->bigInteger('warehouse_id')->unsigned()->nullable();
+            $table->bigInteger('product_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

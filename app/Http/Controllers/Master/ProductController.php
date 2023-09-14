@@ -1,0 +1,126 @@
+<?php
+
+namespace App\Http\Controllers\Master;
+
+use App\Http\Controllers\Controller;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
+{
+    private ProductRepositoryInterface $productRepository;
+
+    public function __construct(ProductRepositoryInterface $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $products = $this->productRepository->allProducts();
+
+        return view('master.products.index', [
+            'title' => 'Products',
+            'products' => $products
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $title = 'Add Product';
+
+        return view('master.products.create', compact('title'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:30',
+            'initial' => 'required|string|max:10',
+            'purchase_price' => 'required|double',
+            'selling_price' => 'required|double',
+            'annotation' => 'required|string',
+            'active' => 'required',
+            'category_id' => 'required|integer|exists:categories,id',
+            'unit_id' => 'required|integer|exists:units,id',
+            'brand_id' => 'required|integer|exists:brands,id',
+        ]);
+
+        $this->productRepository->storeProduct($data);
+
+        return redirect()->route('products.index')->with('message', 'Product Created Successfully');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $title = 'Detail Product';
+        $product = $this->productRepository->findProduct($id);
+
+        return view('master.products.index', compact('title','product'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $title = 'Edit Product';
+        $product = $this->productRepository->findProduct($id);
+
+        return view('master.products.edit', compact('title','product'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:30',
+            'initial' => 'required|string|max:10',
+            'purchase_price' => 'required|double',
+            'selling_price' => 'required|double',
+            'annotation' => 'required|string',
+            'active' => 'required',
+            'category_id' => 'required|integer|exists:categories,id',
+            'unit_id' => 'required|integer|exists:units,id',
+            'brand_id' => 'required|integer|exists:brands,id',
+        ]);
+
+        $this->productRepository->updateProduct($request->all(), $id);
+
+        return redirect()->route('products.index')->with('message', 'Product Updated Successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $data = $this->productRepository->destroyProduct($id);
+
+        return $data;
+    }
+
+    /**
+     * Retrieving data from resource.
+     */
+    public function getDataProducts(){
+
+        $data = $this->productRepository->allProducts();
+
+        return $data;
+    }
+}

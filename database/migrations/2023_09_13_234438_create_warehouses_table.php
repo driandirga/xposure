@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
-            $table->string('name',10)->unique();
-            $table->string('initial',3)->unique();
+            $table->string('name',30)->unique();
+            $table->string('initial',5)->unique();
             $table->string('address');
             $table->boolean('active');
             $table->timestamps();

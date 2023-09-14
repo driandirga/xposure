@@ -15,8 +15,8 @@ class Salesman extends Model
     protected $fillable = [
         'name',
         'initial',
-        'phone',
         'address',
+        'phone',
         'active',
     ];
 

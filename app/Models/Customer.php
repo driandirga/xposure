@@ -15,10 +15,10 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'initial',
-        'phone',
         'address',
-        'salesman_id',
+        'phone',
         'active',
+        'salesman_id',
     ];
 
     public function salesman(): BelongsTo

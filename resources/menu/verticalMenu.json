@@ -35,20 +35,20 @@
           "slug": "master-products"
         },
         {
-          "url": "/master/warehouse",
-          "name": "Warehouse",
-          "slug": "master-warehouse"
+          "url": "/master/warehouses",
+          "name": "Warehouses",
+          "slug": "master-warehouses"
         }
       ]
     },
     {
-      "menuHeader": "Inventory"
+      "menuHeader": "Inventories"
     },
     {
-      "url": "/",
-      "name": "Inventory",
+      "url": "/inventories",
+      "name": "Inventories",
       "icon": "menu-icon tf-icons bx bx-layout",
-      "slug": "dashboard-analytics"
+      "slug": "Inventories"
     },
     {
       "menuHeader": "Transactions"
@@ -64,7 +64,7 @@
           "slug": "purchases-suppliers"
         },
         {
-          "url": "purchases/purchaseinvoice",
+          "url": "purchases/purchase-invoice",
           "name": "Purchase Invoice",
           "slug": "purchases-purchase-invoice"
         }
@@ -76,9 +76,9 @@
       "slug": "sales",
       "submenu": [
         {
-          "url": "sales/salesman",
-          "name": "Salesman",
-          "slug": "sales-salesman"
+          "url": "sales/salesmen",
+          "name": "Salesmen",
+          "slug": "sales-salesmen"
         },
         {
           "url": "sales/customers",
@@ -86,7 +86,7 @@
           "slug": "sales-customers"
         },
         {
-          "url": "sales/salesinvoice",
+          "url": "sales/sales-invoice",
           "name": "Sales Invoice",
           "slug": "sales-sales-invoice"
         }

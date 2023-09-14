@@ -15,7 +15,6 @@ class Warehouse extends Model
     protected $fillable = [
         'name',
         'initial',
-        'phone',
         'address',
         'active',
     ];
