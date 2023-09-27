@@ -34,7 +34,7 @@ class UnitController extends Controller
     public function create()
     {
         $title = 'Add Unit';
-
+        
         return view('master.units.create', compact('title'));
     }
 

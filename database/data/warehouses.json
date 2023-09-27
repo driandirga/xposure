@@ -1,0 +1,20 @@
+[
+    {
+        "name" : "JKT48",
+        "initial" : "JKT",
+        "address" : "Jakarta",
+        "active" : true
+    },
+    {
+        "name" : "BDG31",
+        "initial" : "BDG",
+        "address" : "Bandung",
+        "active" : true
+    },
+    {
+        "name" : "YGY67",
+        "initial" : "YGY",
+        "address" : "Yogyakarta",
+        "active" : true
+    }
+]

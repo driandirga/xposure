@@ -18,7 +18,7 @@
                     <h5>Edit Brand</h5>
                 </div>
                 <div class="card-body pt-0 pb-2">
-                    <form action="{{ route('brands.update', $brand->id) }}" method="POST">
+                    <form action="{{ route('master.brands.update', $brand->id) }}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="mb-3">

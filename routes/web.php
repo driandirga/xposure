@@ -34,35 +34,46 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     /**
      * Master Route
      */
     // Route::get('/master/units/get', [UnitController::class, 'getDataUnits'])->name('units.get');
-    Route::resource('/master/units', UnitController::class);
-    Route::resource('/master/categories', CategoryController::class);
-    Route::resource('/master/brands', BrandController::class);
-    Route::resource('/master/products', ProductController::class);
-    Route::resource('/master/warehouses', WarehouseController::class);
+    Route::prefix('master')->name('master.')->group(function () {
+
+        Route::resource('units', UnitController::class);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('brands', BrandController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('warehouses', WarehouseController::class);
+
+    });
 
     /**
      * Inventories Route
      */
-    Route::resource('/inventories', StockController::class);
+    Route::resource('/inventories', StockController::class,['name' => 'inventories']);
 
     /**
      * Purchases Route
      */
-    Route::resource('/purchases/suppliers', SupplierController::class);
-    Route::resource('/purchases/purchase-invoice', PurchaseInvoiceController::class);
+    Route::prefix('purchase')->name('purchase.')->group(function () {
+
+        Route::resource('suppliers', SupplierController::class);
+    // Route::resource('purchase-invoice', PurchaseInvoiceController::class);
+
+    });
 
     /**
      * Sales Route
      */
-    Route::resource('/sales/salesmen', SalesmanController::class);
-    Route::resource('/sales/customers', CustomerController::class);
-    Route::resource('/sales/sales-invoice', SalesInvoiceController::class);
+    Route::prefix('sales')->name('sales.')->group(function () {
+
+        Route::resource('salesmen', SalesmanController::class);
+        Route::resource('customers', CustomerController::class);
+        // Route::resource('sales-invoice', SalesInvoiceController::class);
+    });
 });
 
 Auth::routes();

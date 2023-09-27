@@ -1,0 +1,23 @@
+[
+    {
+        "name" : "PT. Samsung Indonesia",
+        "initial" : "SAM",
+        "address" : "Jakarta",
+        "phone" : "021222333444",
+        "active" : true
+    },
+    {
+        "name" : "PT. Lenovo Indonesia",
+        "initial" : "LEN",
+        "address" : "Bandung",
+        "phone" : "022333444555",
+        "active" : true
+    },
+    {
+        "name" : "PStore",
+        "initial" : "PST",
+        "address" : "Yogyakarta",
+        "phone" : "023444555666",
+        "active" : true
+    }
+]

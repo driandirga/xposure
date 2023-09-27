@@ -16,7 +16,7 @@
             <div class="card mb-4">
                 <div class="card-header pb-0">
                     <h6>Data Categories</h6>
-                    <a href="{{ route('categories.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
+                    <a href="{{ route('master.categories.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
                         data-toggle="tooltip" data-original-title="Add Category">
                         Add
                     </a>
@@ -42,7 +42,7 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->initial }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('categories.edit', $category->id) }}"
+                                            <a href="{{ route('master.categories.edit', $category->id) }}"
                                                 class="btn btn-warning btn-sm font-weight-bold text-xs"
                                                 data-toggle="tooltip">
                                                 Edit
@@ -122,7 +122,7 @@
                                 `${name} Success`,
                                 'success'
                             ).then(function() {
-                                window.location.href = "{{ route('categories.index') }}";
+                                window.location.href = "{{ route('master.categories.index') }}";
                             });
                         }
                         console.log("it Works");

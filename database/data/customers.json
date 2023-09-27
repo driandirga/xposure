@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "PT. Phone Indonesia",
+        "initial" : "PHO",
+        "address" : "Jakarta",
+        "phone" : "031222333444",
+        "active" : true,
+        "salesman_id" : 1
+    },
+    {
+        "name" : "PT. Bandung Phone Cell",
+        "initial" : "BPC",
+        "address" : "Bandung",
+        "phone" : "032333444555",
+        "active" : true,
+        "salesman_id" : 2
+    },
+    {
+        "name" : "CV. Phoneshop",
+        "initial" : "PSP",
+        "address" : "Yogyakarta",
+        "phone" : "033444555666",
+        "active" : true,
+        "salesman_id" : 3
+    }
+]

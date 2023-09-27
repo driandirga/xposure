@@ -1,0 +1,23 @@
+[
+    {
+        "name" : "ACEP",
+        "initial" : "ACP",
+        "address" : "Jakarta",
+        "phone" : "081222333444",
+        "active" : true
+    },
+    {
+        "name" : "UCUP",
+        "initial" : "UCP",
+        "address" : "Bandung",
+        "phone" : "082333444555",
+        "active" : true
+    },
+    {
+        "name" : "ECEP",
+        "initial" : "ECP",
+        "address" : "Yogyakarta",
+        "phone" : "083444555666",
+        "active" : true
+    }
+]

@@ -35,7 +35,7 @@ class WarehouseController extends Controller
     {
         $title = 'Add Warehouse';
 
-        return view('master.warehouse.create', compact('title'));
+        return view('master.warehouses.create', compact('title'));
     }
 
     /**

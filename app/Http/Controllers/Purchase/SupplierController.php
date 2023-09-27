@@ -22,7 +22,7 @@ class SupplierController extends Controller
     {
         $suppliers = $this->supplierRepository->allSuppliers();
 
-        return view('master.suppliers.index', [
+        return view('purchase.suppliers.index', [
             'title' => 'Suppliers',
             'suppliers' => $suppliers
         ]);
@@ -35,7 +35,7 @@ class SupplierController extends Controller
     {
         $title = 'Add Supplier';
 
-        return view('master.suppliers.create', compact('title'));
+        return view('purchase.suppliers.create', compact('title'));
     }
 
     /**
@@ -64,7 +64,7 @@ class SupplierController extends Controller
         $title = 'Detail Supplier';
         $supplier = $this->supplierRepository->findSupplier($id);
 
-        return view('master.suppliers.index', compact('title','supplier'));
+        return view('purchase.suppliers.index', compact('title','supplier'));
     }
 
     /**
@@ -75,7 +75,7 @@ class SupplierController extends Controller
         $title = 'Edit Supplier';
         $supplier = $this->supplierRepository->findSupplier($id);
 
-        return view('master.suppliers.edit', compact('title','supplier'));
+        return view('purchase.suppliers.edit', compact('title','supplier'));
     }
 
     /**

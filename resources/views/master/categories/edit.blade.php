@@ -18,7 +18,7 @@
                     <h5>Edit Category</h5>
                 </div>
                 <div class="card-body pt-0 pb-2">
-                    <form action="{{ route('categories.update', $category->id) }}" method="POST">
+                    <form action="{{ route('master.categories.update', $category->id) }}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="mb-3">

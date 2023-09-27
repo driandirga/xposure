@@ -22,7 +22,7 @@ class SalesmanController extends Controller
     {
         $salesmen = $this->salesmanRepository->allSalesmen();
 
-        return view('master.salesmen.index', [
+        return view('sales.salesmen.index', [
             'title' => 'Salesmen',
             'salesmen' => $salesmen
         ]);
@@ -35,7 +35,7 @@ class SalesmanController extends Controller
     {
         $title = 'Add Salesman';
 
-        return view('master.salesmen.create', compact('title'));
+        return view('sales.salesmen.create', compact('title'));
     }
 
     /**
@@ -64,7 +64,7 @@ class SalesmanController extends Controller
         $title = 'Detail Salesman';
         $salesman = $this->salesmanRepository->findSalesman($id);
 
-        return view('master.salesmen.index', compact('title','salesman'));
+        return view('sales.salesmen.index', compact('title','salesman'));
     }
 
     /**
@@ -75,7 +75,7 @@ class SalesmanController extends Controller
         $title = 'Edit Salesman';
         $salesman = $this->salesmanRepository->findSalesman($id);
 
-        return view('master.salesmen.edit', compact('title','salesman'));
+        return view('sales.salesmen.edit', compact('title','salesman'));
     }
 
     /**

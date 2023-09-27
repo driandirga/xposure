@@ -16,7 +16,7 @@
             <div class="card mb-4">
                 <div class="card-header pb-0">
                     <h6>Data Brands</h6>
-                    <a href="{{ route('brands.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
+                    <a href="{{ route('master.brands.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
                         data-toggle="tooltip" data-original-title="Add Brand">
                         Add
                     </a>
@@ -42,7 +42,7 @@
                                         <td>{{ $brand->name }}</td>
                                         <td>{{ $brand->initial }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('brands.edit', $brand->id) }}"
+                                            <a href="{{ route('master.brands.edit', $brand->id) }}"
                                                 class="btn btn-warning btn-sm font-weight-bold text-xs"
                                                 data-toggle="tooltip">
                                                 Edit
@@ -122,7 +122,7 @@
                                 `${name} Success`,
                                 'success'
                             ).then(function() {
-                                window.location.href = "{{ route('brands.index') }}";
+                                window.location.href = "{{ route('master.brands.index') }}";
                             });
                         }
                         console.log("it Works");

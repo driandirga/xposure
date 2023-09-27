@@ -22,7 +22,7 @@ class CustomerController extends Controller
     {
         $customers = $this->customerRepository->allCustomers();
 
-        return view('master.customers.index', [
+        return view('sales.customers.index', [
             'title' => 'Customers',
             'customers' => $customers
         ]);
@@ -35,7 +35,7 @@ class CustomerController extends Controller
     {
         $title = 'Add Customer';
 
-        return view('master.customers.create', compact('title'));
+        return view('sales.customers.create', compact('title'));
     }
 
     /**
@@ -65,7 +65,7 @@ class CustomerController extends Controller
         $title = 'Detail Customer';
         $customer = $this->customerRepository->findCustomer($id);
 
-        return view('master.customers.index', compact('title','customer'));
+        return view('sales.customers.index', compact('title','customer'));
     }
 
     /**
@@ -76,7 +76,7 @@ class CustomerController extends Controller
         $title = 'Edit Customer';
         $customer = $this->customerRepository->findCustomer($id);
 
-        return view('master.customers.edit', compact('title','customer'));
+        return view('sales.customers.edit', compact('title','customer'));
     }
 
     /**

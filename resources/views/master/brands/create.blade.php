@@ -18,7 +18,7 @@
                     <h5>Add Brand</h5>
                 </div>
                 <div class="card-body pt-0 pb-2">
-                    <form action="{{ route('brands.store') }}" method="POST">
+                    <form action="{{ route('master.brands.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>

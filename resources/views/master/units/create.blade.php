@@ -18,7 +18,7 @@
                     <h5>Add Unit</h5>
                 </div>
                 <div class="card-body pt-0 pb-2">
-                    <form action="{{ route('units.store') }}" method="POST">
+                    <form action="{{ route('master.units.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>

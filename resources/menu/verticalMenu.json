@@ -4,7 +4,7 @@
       "url": "/",
       "name": "Dashboard",
       "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "slug": "dashboard"
     },
     {
       "menuHeader": "Master"
@@ -15,29 +15,29 @@
       "slug": "master",
       "submenu": [
         {
-          "url": "/master/units",
+          "url": "master/units",
           "name": "Units",
-          "slug": "master-units"
+          "slug": "master.units.index"
         },
         {
-          "url": "/master/brands",
+          "url": "master/brands",
           "name": "Brands",
-          "slug": "master-brands"
+          "slug": "master.brands.index"
         },
         {
-          "url": "/master/categories",
+          "url": "master/categories",
           "name": "Categories",
-          "slug": "master-categories"
+          "slug": "master.categories.index"
         },
         {
-          "url": "/master/products",
+          "url": "master/products",
           "name": "Products",
-          "slug": "master-products"
+          "slug": "master.products.index"
         },
         {
-          "url": "/master/warehouses",
+          "url": "master/warehouses",
           "name": "Warehouses",
-          "slug": "master-warehouses"
+          "slug": "master.warehouses.index"
         }
       ]
     },
@@ -48,25 +48,25 @@
       "url": "/inventories",
       "name": "Inventories",
       "icon": "menu-icon tf-icons bx bx-layout",
-      "slug": "Inventories"
+      "slug": "inventories"
     },
     {
       "menuHeader": "Transactions"
     },
     {
-      "name": "Purchases",
+      "name": "Purchase",
       "icon": "menu-icon tf-icons bx bx-box",
-      "slug": "purchases",
+      "slug": "purchase",
       "submenu": [
         {
-          "url": "purchases/suppliers",
+          "url": "purchase/suppliers",
           "name": "Suppliers",
-          "slug": "purchases-suppliers"
+          "slug": "purchase.suppliers.index"
         },
         {
-          "url": "purchases/purchase-invoice",
+          "url": "purchase/purchase-invoice",
           "name": "Purchase Invoice",
-          "slug": "purchases-purchase-invoice"
+          "slug": "purchase-purchase-invoice"
         }
       ]
     },
@@ -78,12 +78,12 @@
         {
           "url": "sales/salesmen",
           "name": "Salesmen",
-          "slug": "sales-salesmen"
+          "slug": "sales.salesmen.index"
         },
         {
           "url": "sales/customers",
           "name": "Customers",
-          "slug": "sales-customers"
+          "slug": "sales.customers.index"
         },
         {
           "url": "sales/sales-invoice",

@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Master - Units')
+@section('title', 'Master - Warehouses')
 
 @section('page-script')
     <script src="{{ asset('assets/js/pages-account-settings-account.js') }}"></script>
@@ -8,15 +8,15 @@
 
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Master /</span> Units
+        <span class="text-muted fw-light">Master /</span> Warehouses
     </h4>
 
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Data Units</h6>
-                    <a href="{{ route('master.units.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
+                    <h6>Data Warehouses</h6>
+                    <a href="{{ route('warehouses.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
                         data-toggle="tooltip" data-original-title="Add Unit">
                         Add
                     </a>
@@ -31,26 +31,29 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 "
-                                        width="15%">Initial</th>
+                                    width="15%">Initial</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Address</th>
                                     <th class="text-secondary opacity-7" width="15%"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($units as $k => $unit)
+                                @foreach ($warehouses as $k => $warehouse)
                                     <tr>
                                         <td class="text-center">{{ $k + 1 }}</td>
-                                        <td>{{ $unit->name }}</td>
-                                        <td>{{ $unit->initial }}</td>
+                                        <td>{{ $warehouse->name }}</td>
+                                        <td>{{ $warehouse->initial }}</td>
+                                        <td>{{ $warehouse->address }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('master.units.edit', $unit->id) }}"
+                                            <a href="{{ route('warehouses.edit', $warehouse->id) }}"
                                                 class="btn btn-warning btn-sm font-weight-bold text-xs"
                                                 data-toggle="tooltip">
                                                 Edit
                                             </a>
                                             <a href="javascript:;"
                                                 class="btn btn-danger btn-sm font-weight-bold text-xs delete"
-                                                data-toggle="tooltip" data-id="{{ $unit->id }}"
-                                                data-name="{{ $unit->name }}">
+                                                data-toggle="tooltip" data-id="{{ $warehouse->id }}"
+                                                data-name="{{ $warehouse->name }}">
                                                 Delete
                                             </a>
                                         </td>
@@ -76,7 +79,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="py-3 text-center">
-                        <h4 class="text-secondary mt-4">Delete Data <span class="text-danger" id="name">Units</span>
+                        <h4 class="text-secondary mt-4">Delete Data <span class="text-danger" id="name">Warehouses</span>
                         </h4>
                         <p>Are you sure you want to delete data?</p>
                         <input type="hidden" id="id">
@@ -106,7 +109,7 @@
                 let name = $('#modal-notification #name').text()
                 let token = $("meta[name='csrf-token']").attr("content");
                 $.ajax({
-                    url: "units/" + id,
+                    url: "warehouses/" + id,
                     type: 'DELETE',
                     data: {
                         id: id,
@@ -122,7 +125,7 @@
                                 `${name} Success`,
                                 'success'
                             ).then(function() {
-                                window.location.href = "{{ route('master.units.index') }}";
+                                window.location.href = "{{ route('warehouses.index') }}";
                             });
                         }
                         console.log("it Works");
@@ -134,9 +137,9 @@
             });
         });
 
-        function getDataUnits() {
+        function getDataWarehouses() {
             $.ajax({
-                url: '/master/units/get', // Sesuaikan dengan URL rute "units/nama"
+                url: '/master/warehouses/get', // Sesuaikan dengan URL rute "warehouses/nama"
                 method: 'GET',
                 success: function(result) {
                     console.log(result);

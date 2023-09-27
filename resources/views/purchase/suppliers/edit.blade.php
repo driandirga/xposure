@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Master - Edit Unit')
+@section('title', 'Purchase - Edit Supplier')
 
 @section('page-script')
     <script src="{{ asset('assets/js/pages-account-settings-account.js') }}"></script>
@@ -8,31 +8,37 @@
 
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Master /</span> Edit Unit
+        <span class="text-muted fw-light">Purchase /</span> Edit Supplier
     </h4>
 
     <div class="row">
         <div class="col-6">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h5>Edit Unit</h5>
+                    <h5>Edit Supplier</h5>
                 </div>
                 <div class="card-body pt-0 pb-2">
-                    <form action="{{ route('master.units.update', $unit->id) }}" method="POST">
+                    <form action="{{ route('purchase.suppliers.update', $supplier->id) }}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" autocomplete="off"
-                                value="{{ old('name', $unit->name) }}" required>
+                                value="{{ old('name', $supplier->name) }}" required>
                             <label for="initial" class="form-label">Initial</label>
                             <input type="text" class="form-control" id="initial" name="initial" autocomplete="off"
-                                value="{{ old('initial', $unit->initial) }}" required>
+                                value="{{ old('initial', $supplier->initial) }}" required>
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" autocomplete="off"
+                                value="{{ old('address', $supplier->address) }}" required>
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" autocomplete="off"
+                                value="{{ old('phone', $supplier->phone) }}" required>
                         </div>
                         <div class="form-check">
                             <input type="hidden" name="active" value="0">
                             <input type="checkbox" class="form-check-input " id="active" name="active" value="1"
-                                @checked($unit->active)>
+                                @checked($supplier->active)>
                             <label class="form-check-label" for="active">Status</label>
                         </div>
                         <button type="submit" class="btn btn-primary float-end">Update</button>
