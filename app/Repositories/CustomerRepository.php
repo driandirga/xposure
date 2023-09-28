@@ -4,13 +4,20 @@ namespace App\Repositories;
 
 use App\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Models\Customer;
+use Illuminate\Support\Facades\DB;
 
 class CustomerRepository implements CustomerRepositoryInterface
 {
 
     public function allCustomers()
     {
-        return Customer::where('active', 1)->paginate(10);
+        // return Customer::where('active', 1)->paginate(10);
+        $customers = DB::table('customers')
+            ->join('salesmen', 'salesmen.id', '=', 'customers.salesman_id')
+            ->select('customers.*', 'salesmen.name as salesman_name')
+            ->where('customers.active', 1)->paginate(10);
+
+        return $customers;
     }
 
     public function storeCustomer($data)

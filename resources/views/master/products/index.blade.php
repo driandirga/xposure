@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Sales - Customers')
+@section('title', 'Master - Products')
 
 @section('page-script')
     <script src="{{ asset('assets/js/pages-account-settings-account.js') }}"></script>
@@ -8,15 +8,15 @@
 
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Sales /</span> Customers
+        <span class="text-muted fw-light">Master /</span> Products
     </h4>
 
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Data Customers</h6>
-                    <a href="{{ route('sales.customers.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
+                    <h6>Data Products</h6>
+                    <a href="{{ route('master.products.create') }}" class="btn btn-primary btn-sm font-weight-bold text-xs float-end"
                         data-toggle="tooltip" data-original-title="Add Unit">
                         Add
                     </a>
@@ -32,34 +32,37 @@
                                         Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 "
                                     width="15%">Initial</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Address</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                                    width="15%">Phone</th>
+                                    width="10%">Category</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                                    width="10%">Salesman</th>
+                                    width="10%">Brand</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" width="15%">
+                                        Purchase Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" width="15%">
+                                        Selling Price</th>
                                     <th class="text-secondary opacity-7" width="15%"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($customers as $k => $customer)
+                                @foreach ($products as $k => $product)
                                     <tr>
                                         <td class="text-center">{{ $k + 1 }}</td>
-                                        <td>{{ $customer->name }}</td>
-                                        <td>{{ $customer->initial }}</td>
-                                        <td>{{ $customer->address }}</td>
-                                        <td>{{ $customer->phone }}</td>
-                                        <td>{{ $customer->salesman_name }}</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>{{ $product->initial }}</td>
+                                        <td>{{ $product->category_name }}</td>
+                                        <td>{{ $product->brand_name }}</td>
+                                        <td>{{ number_format($product->purchase_price,2) }}</td>
+                                        <td>{{ number_format($product->selling_price,2) }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('sales.customers.edit', $customer->id) }}"
+                                            <a href="{{ route('master.products.edit', $product->id) }}"
                                                 class="btn btn-warning btn-sm font-weight-bold text-xs"
                                                 data-toggle="tooltip">
                                                 Edit
                                             </a>
                                             <a href="javascript:;"
                                                 class="btn btn-danger btn-sm font-weight-bold text-xs delete"
-                                                data-toggle="tooltip" data-id="{{ $customer->id }}"
-                                                data-name="{{ $customer->name }}">
+                                                data-toggle="tooltip" data-id="{{ $product->id }}"
+                                                data-name="{{ $product->name }}">
                                                 Delete
                                             </a>
                                         </td>
@@ -85,7 +88,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="py-3 text-center">
-                        <h4 class="text-secondary mt-4">Delete Data <span class="text-danger" id="name">Customers</span>
+                        <h4 class="text-secondary mt-4">Delete Data <span class="text-danger" id="name">Products</span>
                         </h4>
                         <p>Are you sure you want to delete data?</p>
                         <input type="hidden" id="id">
@@ -115,7 +118,7 @@
                 let name = $('#modal-notification #name').text()
                 let token = $("meta[name='csrf-token']").attr("content");
                 $.ajax({
-                    url: "customers/" + id,
+                    url: "products/" + id,
                     type: 'DELETE',
                     data: {
                         id: id,
@@ -131,7 +134,7 @@
                                 `${name} Success`,
                                 'success'
                             ).then(function() {
-                                window.location.href = "{{ route('sales.customers.index') }}";
+                                window.location.href = "{{ route('master.products.index') }}";
                             });
                         }
                         console.log("it Works");
@@ -143,9 +146,9 @@
             });
         });
 
-        function getDataCustomers() {
+        function getDataProducts() {
             $.ajax({
-                url: '/master/customers/get', // Sesuaikan dengan URL rute "customers/nama"
+                url: '/master/products/get', // Sesuaikan dengan URL rute "products/nama"
                 method: 'GET',
                 success: function(result) {
                     console.log(result);

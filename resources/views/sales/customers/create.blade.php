@@ -33,6 +33,13 @@
                             <label for="phone" class="form-label">Phone</label>
                             <input type="text" class="form-control" id="phone" name="phone" autocomplete="off"
                                 required>
+                            <label for="salesman_id" class="form-label">Salesman</label>
+                            <select class="form-select" id="salesman_id" name="salesman_id" aria-label="Default select example">
+                            <option selected>Choose a Salesman</option>
+                            @foreach($salesmen as $salesman)
+                            <option value="{{$salesman->id}}">{{$salesman->name}}</option>
+                            @endforeach
+                            </select>
                         </div>
                         <div class="form-check">
                             <input type="hidden" name="active" value="0">

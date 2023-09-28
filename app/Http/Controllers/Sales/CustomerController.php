@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sales;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
@@ -34,8 +35,9 @@ class CustomerController extends Controller
     public function create()
     {
         $title = 'Add Customer';
+        $salesmen = DB::table('salesmen')->get();
 
-        return view('sales.customers.create', compact('title'));
+        return view('sales.customers.create', compact('title','salesmen'));
     }
 
     /**
@@ -54,7 +56,7 @@ class CustomerController extends Controller
 
         $this->customerRepository->storeCustomer($data);
 
-        return redirect()->route('customers.index')->with('message', 'Customer Created Successfully');
+        return redirect()->route('sales.customers.index')->with('message', 'Customer Created Successfully');
     }
 
     /**
@@ -63,6 +65,7 @@ class CustomerController extends Controller
     public function show(string $id)
     {
         $title = 'Detail Customer';
+        $salesmen = DB::table('salesmen')->get();
         $customer = $this->customerRepository->findCustomer($id);
 
         return view('sales.customers.index', compact('title','customer'));
@@ -75,8 +78,9 @@ class CustomerController extends Controller
     {
         $title = 'Edit Customer';
         $customer = $this->customerRepository->findCustomer($id);
+        $salesmen = DB::table('salesmen')->get();
 
-        return view('sales.customers.edit', compact('title','customer'));
+        return view('sales.customers.edit', compact('title','customer','salesmen'));
     }
 
     /**
@@ -95,7 +99,7 @@ class CustomerController extends Controller
 
         $this->customerRepository->updateCustomer($request->all(), $id);
 
-        return redirect()->route('customers.index')->with('message', 'Customer Updated Successfully');
+        return redirect()->route('sales.customers.index')->with('message', 'Customer Updated Successfully');
     }
 
     /**

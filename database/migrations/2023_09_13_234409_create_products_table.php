@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('initial',10)->unique();
             $table->double('purchase_price')->default(0);
             $table->double('selling_price')->default(0);
-            $table->text('annotation');
+            $table->text('annotation')->nullable();
             $table->boolean('active');
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->bigInteger('unit_id')->unsigned()->nullable();

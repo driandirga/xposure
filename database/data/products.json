@@ -1,0 +1,35 @@
+[
+    {
+        "name" : "Lenovo X1 Gen 10 32/512",
+        "initial" : "X1GEN10",
+        "purchase_price" : 24000000,
+        "selling_price" : 26000000,
+        "annotation" : "Good for your job",
+        "active" : true,
+        "category_id" : 1,
+        "unit_id" : 3,
+        "brand_id" : 2
+    },
+    {
+        "name" : "Asus ROG 2023 32/512",
+        "initial" : "AROG2023",
+        "purchase_price" : 29000000,
+        "selling_price" : 31500000,
+        "annotation" : "Good for your game",
+        "active" : true,
+        "category_id" : 1,
+        "unit_id" : 3,
+        "brand_id" : 1
+    },
+    {
+        "name" : "Dell Vostro 1450",
+        "initial" : "VOSTRO1450",
+        "purchase_price" : 2000000,
+        "selling_price" : 2150000,
+        "annotation" : "Good for your starter",
+        "active" : true,
+        "category_id" : 3,
+        "unit_id" : 3,
+        "brand_id" : 3
+    }
+]

@@ -4,13 +4,22 @@ namespace App\Repositories;
 
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductRepositoryInterface
 {
 
     public function allProducts()
     {
-        return Product::where('active', 1)->paginate(10);
+        // return Product::where('active', 1)->paginate(10);
+        $products = DB::table('products')
+            ->join('categories', 'categories.id', '=', 'products.category_id')
+            ->join('units', 'units.id', '=', 'products.unit_id')
+            ->join('brands', 'brands.id', '=', 'products.brand_id')
+            ->select('products.*', 'categories.name as category_name', 'units.name as unit_name', 'brands.name as brand_name')
+            ->where('products.active', 1)->paginate(10);
+
+        return $products;
     }
 
     public function storeProduct($data)

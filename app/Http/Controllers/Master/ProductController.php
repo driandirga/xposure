@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -34,8 +35,11 @@ class ProductController extends Controller
     public function create()
     {
         $title = 'Add Product';
+        $categories = DB::table('categories')->get();
+        $units = DB::table('units')->get();
+        $brands = DB::table('brands')->get();
 
-        return view('master.products.create', compact('title'));
+        return view('master.products.create', compact('title','categories','units','brands'));
     }
 
     /**
@@ -43,12 +47,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $data = $request->validate([
             'name' => 'required|string|max:30',
             'initial' => 'required|string|max:10',
-            'purchase_price' => 'required|double',
-            'selling_price' => 'required|double',
-            'annotation' => 'required|string',
+            'purchase_price' => 'required|numeric',
+            'selling_price' => 'required|numeric',
+            'annotation' => 'nullable|string',
             'active' => 'required',
             'category_id' => 'required|integer|exists:categories,id',
             'unit_id' => 'required|integer|exists:units,id',
@@ -57,7 +62,7 @@ class ProductController extends Controller
 
         $this->productRepository->storeProduct($data);
 
-        return redirect()->route('products.index')->with('message', 'Product Created Successfully');
+        return redirect()->route('master.products.index')->with('message', 'Product Created Successfully');
     }
 
     /**
@@ -78,8 +83,11 @@ class ProductController extends Controller
     {
         $title = 'Edit Product';
         $product = $this->productRepository->findProduct($id);
+        $categories = DB::table('categories')->get();
+        $units = DB::table('units')->get();
+        $brands = DB::table('brands')->get();
 
-        return view('master.products.edit', compact('title','product'));
+        return view('master.products.edit', compact('title','product','categories','units','brands'));
     }
 
     /**
@@ -87,12 +95,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd($request->get('annotation'));
         $request->validate([
             'name' => 'required|string|max:30',
             'initial' => 'required|string|max:10',
-            'purchase_price' => 'required|double',
-            'selling_price' => 'required|double',
-            'annotation' => 'required|string',
+            'purchase_price' => 'required|numeric',
+            'selling_price' => 'required|numeric',
+            'annotation' => 'nullable|string',
             'active' => 'required',
             'category_id' => 'required|integer|exists:categories,id',
             'unit_id' => 'required|integer|exists:units,id',
@@ -101,7 +110,7 @@ class ProductController extends Controller
 
         $this->productRepository->updateProduct($request->all(), $id);
 
-        return redirect()->route('products.index')->with('message', 'Product Updated Successfully');
+        return redirect()->route('master.products.index')->with('message', 'Product Updated Successfully');
     }
 
     /**
