@@ -13,8 +13,8 @@ class CustomerRepository implements CustomerRepositoryInterface
     {
         // return Customer::where('active', 1)->paginate(10);
         $customers = DB::table('customers')
-            ->join('salesmen', 'salesmen.id', '=', 'customers.salesman_id')
             ->select('customers.*', 'salesmen.name as salesman_name')
+            ->join('salesmen', 'salesmen.id', '=', 'customers.salesman_id')
             ->where('customers.active', 1)->paginate(10);
 
         return $customers;

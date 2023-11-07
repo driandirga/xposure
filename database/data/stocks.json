@@ -1,0 +1,32 @@
+[
+    {
+        "debit" : 10,
+        "credit" : 2,
+        "warehouse_id" : 1,
+        "product_id" : 1
+    },
+    {
+        "debit" : 5,
+        "credit" : 2,
+        "warehouse_id" : 2,
+        "product_id" : 3
+    },
+    {
+        "debit" : 1,
+        "credit" : 0,
+        "warehouse_id" : 2,
+        "product_id" : 2
+    },
+    {
+        "debit" : 9,
+        "credit" : 8,
+        "warehouse_id" : 1,
+        "product_id" : 3
+    },
+    {
+        "debit" : 8,
+        "credit" : 3,
+        "warehouse_id" : 2,
+        "product_id" : 1
+    }
+]

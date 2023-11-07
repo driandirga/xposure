@@ -53,7 +53,11 @@ Route::middleware(['auth'])->group(function () {
     /**
      * Inventories Route
      */
-    Route::resource('/inventories', StockController::class,['name' => 'inventories']);
+    Route::prefix('inventory')->name('inventory.')->group(function () {
+
+        Route::resource('stocks', StockController::class);
+        
+    });
 
     /**
      * Purchases Route

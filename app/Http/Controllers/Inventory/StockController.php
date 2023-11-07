@@ -22,7 +22,7 @@ class StockController extends Controller
     {
         $stocks = $this->stockRepository->allStocks();
 
-        return view('master.stocks.index', [
+        return view('inventory.stocks.index', [
             'title' => 'Stocks',
             'stocks' => $stocks
         ]);
@@ -35,7 +35,7 @@ class StockController extends Controller
     {
         $title = 'Add Stock';
 
-        return view('master.stocks.create', compact('title'));
+        return view('inventory.stocks.create', compact('title'));
     }
 
     /**
@@ -63,7 +63,7 @@ class StockController extends Controller
         $title = 'Detail Stock';
         $stock = $this->stockRepository->findStock($id);
 
-        return view('master.stocks.index', compact('title','stock'));
+        return view('inventory.stocks.index', compact('title','stock'));
     }
 
     /**
@@ -74,7 +74,7 @@ class StockController extends Controller
         $title = 'Edit Stock';
         $stock = $this->stockRepository->findStock($id);
 
-        return view('master.stocks.edit', compact('title','stock'));
+        return view('inventory.stocks.edit', compact('title','stock'));
     }
 
     /**

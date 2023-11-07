@@ -45,10 +45,10 @@
       "menuHeader": "Inventories"
     },
     {
-      "url": "/inventories",
-      "name": "Inventories",
+      "url": "/inventory/stocks",
+      "name": "Inventory",
       "icon": "menu-icon tf-icons bx bx-layout",
-      "slug": "inventories"
+      "slug": "inventory.stocks.index"
     },
     {
       "menuHeader": "Transactions"
